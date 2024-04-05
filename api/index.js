@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoutes from "./routes/userRoute.js";
+import authRoutes from "./routes/authRoute.js";
 
 const app = express();
 
@@ -19,4 +20,6 @@ mongoose
     console.log(err);
   });
 
+app.use(express.json());
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
