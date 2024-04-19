@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import OAuth from '../components/OAuth';
 
 const SignUp = () => {
 
@@ -10,7 +11,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => 
-    {setFormData({...formData, [e.target.id]:e.target.value})}
+    (setFormData({...formData, [e.target.id]:e.target.value}))
   
   const hanldeSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ const SignUp = () => {
       setLoading(false)
       if (data.success === false) {
         setError(true);
-        return false;
+        return;
       }
       navigate('/sign-in')
     } catch(error){
@@ -46,7 +47,7 @@ const SignUp = () => {
         <button  disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95">
         {loading ? 'Loading..':'Sign up'}
         </button>
-  
+      <OAuth/>
       </form>
       <div className="flex mt-5">
         <p>Have an account?</p>
