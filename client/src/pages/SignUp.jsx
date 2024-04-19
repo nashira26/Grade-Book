@@ -53,7 +53,7 @@ const SignUp = () => {
         <p>Have an account?</p>
         <Link to='/sign-in'><span className="text-blue-500">Sign In</span></Link>
       </div>
-      <p className="text-red-600 my-3"> {error && "Something went wrong!"}</p>
+      <p className="text-red-600 mt-5"> {error && "Something went wrong!"}</p>
     </div>
   )
 }

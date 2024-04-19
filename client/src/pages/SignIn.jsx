@@ -47,10 +47,10 @@ const SignIn = () => {
         <OAuth/>
       </form>
       <div className="flex mt-5">
-        <p>Create a new account?</p>
+        <p>Don't have an account?</p>
         <Link to='/sign-up'><span className="text-blue-500">Sign up</span></Link>
       </div>
-      <p className="text-red-600 my-3">{error ? error.message || "Something went wrong!" :''}</p>
+      <p className="text-red-600 mt-5">{error ? error.message || "Something went wrong!" :''}</p>
     </div>
   )
 }
