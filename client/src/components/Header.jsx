@@ -1,26 +1,93 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import {signOut } from '../redux/user/userSlice'  
 
 const Header = () => {
   const { currentUser } = useSelector((state)=>state.user);
+  const dispatch = useDispatch();
+  const handleSignOut = async (e) => {
+    try {
+      await fetch('/api/auth/signout');
+      dispatch(signOut())
+    } catch(error){
+      console.log(error)
+    }
+  } 
+
+
   return (
-    <div className="bg-slate-200">
-        <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
-            <Link to='/'><h1 className="font-bold">Grade Book</h1></Link>
-            <ul className="flex gap-4">  
-                <Link to='/'><li>Home</li></Link>
-                <Link to='/profile'>
-                  {currentUser ? (
-                    <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAACUCAMAAADbGilTAAAAMFBMVEXk5ueutLersbTM0NHn6erh4+TU19mzuLvAxce3vL+orrHFycvq7O3Y293b3t/Q09VQfWixAAAEDElEQVR4nO2c23LcIAxADRY3g/H//22x95Jss2sDwpIz4Tx0kk4fzmgFaEHqMHQ6nU6n0+l0Op1Op/N3AYBBbaQfuWX2AFDzMnq74cclqqv6BlisE0I+EcbZGQK31w9giDbZ/UAKH4eLBVfb6Y3pZitTcLn1vgjRiQ+mt9hadRFbGPyO6N124bbcgOiOVBPTFUILeu/j/xZaw5+1Y47ozVbzysI4Zbsyy8KY9fk/YZSFpcg0RZYtZ0GXRXWVZdsNSk2Tq1MspmCLw5pkPYtq4bp6yHKsL2VqVBP0rqEmA7bAjuQVrSo4BF4x1MsLbK1qCixtFsBcrUof2MOSdYdpIQ2scoi4CkO6uspP15fARkLVqiPrC+kJkwBQqikJCF1j9eZ6hy4JALMLbNBtsQG1CwjahK0tW56uluw4iEhVIchKbtQBe8NQLa7ir4Rv+EWucqZyzb9r+eiqyVyx22t3fe+KVf1drr9obQkyV413JSu0IrYeoDtj669cHhBewTWoCalUh1B/kXGHrtaGBXsYUF4WIr9vGTrTISAXlyO8zEBWBJL0kgj3LWaivYHFXLyQXrtgdwLK66yV+uOA8Av3jYp3uCfkLzGQ9xT/Bkf+EAO68jyYGF4OKy/giDeBO1VVLNODbF0WML3Kh/IskAtbG1zp6SUtX2OGyml3+q7KZrpSIsusCgWyzKoJZTN3g4mlI+OV4LOCKmgfYT8A+jgPpOPv0NsA5T81vz5Uxwt0Pt4BtdMAK4W9VmcxzNa87YGWxsdLmQ5bw/bi5GsupF+tjtfshYdBe3OL5vqn8/O1Pvz/gAAqaq3nuP7IbbMLQPgCrvnpr5ZD1OvQhntg7bjodXTjMsbr/EvUo03rauW/tbX+jUnOM79zgKhTJNe5kr2TYBs38WPkmzeBEL17rPlD1n9mrGYILoDSVh6crG+YJrfQzscAaO/KRW/xnYQdFVUywDDujr8c6wrjKWqZtDMdFVV50XWnn2kwe1RIv+va5UzboGwr01VWOH1a3h6W1MVM5/TowLCYxqYr8oTqNhReW+TLmsbXRmmbOsd0s206hgZnBfUu23CkB/QZmfpCqwtkfAfpMdK1cfXYxtwsWdNiP8C1ZufTYHby9FR9gp1AOncDaCpLqipQDx9ArCpkdXmAnHioovIIa9COWU7dU12DruwK6p5AVcOyuoCaganqeUIssjgL8O1i1a7Fb4v4Vsx62cIsoKitPlJYcyk+09JBT7aFdZctiiuralFgWbN1peD0wk2UtiC7OmwxR4Sj4PmeOwUSuUmAbnPHM+XOoKAnSvHkHrQsdesP8i650NMDLZjyUiDwp0ByzfuaCFdwzTy6LrC0ElmLC/QkL0BeR28cr0Dmf7oGVyBPtfPH+Af1MThSebmITAAAAABJRU5ErkJggg==' alt='profile' className='h-7 w-7 rounded-full object-cover' />
-                  ) : (
-                    <li>Sign In</li>
-                  )}
-                </Link> 
-            </ul>
+    <div class="bg-white">
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span>Grade Book</span>
+          {/* <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt=""> */}
+        </a>
+      </div>
+      {currentUser ? 
+      <div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="/class" class="text-sm font-semibold leading-6 text-gray-900">My Class</a>
+          <a href="/schedules" class="text-sm font-semibold leading-6 text-gray-900">Schedules</a>
+          <a href='/profile' class="text-sm font-semibold leading-6 text-gray-900">Profile</a>  
+        <div class="hidden lg:flex lg:justify-end">
+          <a  onClick={handleSignOut} class="text-sm font-semibold leading-6 text-gray-900">Sign Out  <span aria-hidden="true">&rarr;</span></a>
+        </div> 
         </div>
+      </div>  
+      :
+      <div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="/" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
+        <div class="hidden lg:flex">
+          <a href="/sign-in" class="text-sm font-semibold leading-6 text-gray-900">Sign In <span aria-hidden="true">&rarr;</span></a>
+        </div> 
+        </div>
+      </div>
+      }
+    </nav>
+    {/* <!-- Mobile menu, show/hide based on menu open state. --> */}
+    <div class="lg:hidden" role="dialog" aria-modal="true">
+      {/* <!-- Background backdrop, show/hide based on slide-over state. --> */}
+      <div class="fixed inset-0 z-50"></div>
+      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            {currentUser ? 
+            <div>
+              <div class="space-y-2 py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">My Class</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Schedules</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Profile</a>
+              </div>
+              <div class="py-6">
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign out</a>
+            </div>
+            </div>
+            : 
+            <div>
+            <div class="space-y-2 py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Home</a>
+              </div>
+              <div class="py-6">
+              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign in</a>
+            </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  </header>
+
+ 
+</div>
+
+)
 }
 
 export default Header

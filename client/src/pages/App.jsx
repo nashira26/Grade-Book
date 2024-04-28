@@ -6,7 +6,7 @@ import SignUp from './pages/SignUp'
 import Header from './components/Header';
 import Profile from './pages/Profile';
 import Class from './pages/Class';
-import SubjectSchedule from './pages/SubjectSchedule';
+import ClassSchedule from './pages/ClassSchedule';
 import Schedules from './pages/Schedules';
 import PrivateRoute from './components/PrivateRoute'
 
@@ -20,7 +20,7 @@ const App = () => {
       <Route path='/sign-up' element={<SignUp/>}></Route>
       <Route path='/class' element={<Class/>}></Route>
       <Route path='/schedules' element={<Schedules/>}></Route>
-      <Route path='/subject-schedule' element={<SubjectSchedule/>}></Route>
+      <Route path='/class-schedule' element={<ClassSchedule/>}></Route>
       <Route element={<PrivateRoute/>}>
         <Route path='/profile' element={<Profile/>}></Route>
       </Route>

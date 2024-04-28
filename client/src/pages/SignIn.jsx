@@ -36,6 +36,7 @@ const SignIn = () => {
     }
   }
   return (
+    <div class="relative isolate px-6 pt-14 lg:px-8">
     <div className="max-w-lg mx-auto p-5">
       <h1 className="text-3xl text-center font-semibold my-7">Sign In</h1>
       <form className="flex flex-col gap-4 " onSubmit={hanldeSubmit}>
@@ -51,6 +52,7 @@ const SignIn = () => {
         <Link to='/sign-up'><span className="text-blue-500">Sign up</span></Link>
       </div>
       <p className="text-red-600 mt-5">{error ? error.message || "Something went wrong!" :''}</p>
+    </div>
     </div>
   )
 }
