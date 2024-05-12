@@ -11,28 +11,28 @@ import {
   Icon,
   Input
 } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
-const Class = () => {
+const SubjectSchedules = () => {
   return (
     <div className="content">
 
          {/* <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
           <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
-            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">You have no in charge class</span>
+            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">No schdules found</span>
           </h3>
           <div class="relative flex flex-wrap items-center my-2">
-            <a href="javascript:void(0)" class="inline-block text-[.925rem] font-bold leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-150 ease-in-out text-light-inverse bg-light-dark border-light shadow-none border-0 py-2 px-5 hover:bg-secondary active:bg-light focus:bg-light"> Add Class</a>
+            <a href="javascript:void(0)" class="inline-block text-[.925rem] font-bold leading-normal text-center align-middle cursor-pointer rounded-2xl transition-colors duration-150 ease-in-out text-light-inverse bg-light-dark border-light shadow-none border-0 py-2 px-5 hover:bg-secondary active:bg-light focus:bg-light"> Add Schedule</a>
           </div>
         </div> */}
         
-         <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
+        <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
           <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
-            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">Grade 6B - Year 2024</span>
+            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">Year 2024 Term 3</span>
           </h3>
           <Input icon='search' placeholder='Search...' className="max-h-7 top-4"/>
           <div class="relative flex flex-wrap items-center my-2 lg:gap-x-4">
-            <Button color='blue'><Icon name='plus' color='white'/> Add Student</Button>
-            <Button color='grey'> <Icon name='bars' color='white'/>Class schedules </Button>
+            <Button color='blue'><Icon name='plus' color='white'/> Add Schedule</Button>
           </div>
         </div>
         
@@ -43,26 +43,27 @@ const Class = () => {
         <TableHeader>
           <TableRow>
             <TableHeaderCell>Serial No</TableHeaderCell>
-            <TableHeaderCell>Index No</TableHeaderCell>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Averages</TableHeaderCell>
-            <TableHeaderCell></TableHeaderCell>
+            <TableHeaderCell>Subject</TableHeaderCell>
+            <TableHeaderCell>Class</TableHeaderCell>
+            <TableHeaderCell>Status</TableHeaderCell>
+            <TableHeaderCell>Actions</TableHeaderCell>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           <TableRow>
             <TableCell>1</TableCell>
-            <TableCell>6369</TableCell>
-            <TableCell>George Cooper</TableCell>
-            <TableCell>76</TableCell>
-            <TableCell textAlign='center'><Icon name='ellipsis vertical' color='black'/></TableCell>
+            <TableCell>Science</TableCell>
+            <TableCell>6C Cooper</TableCell>
+            <TableCell>Pending</TableCell>
+            <TableCell textAlign='center'><Link to='/subject-schedule'><Icon name='ellipsis vertical' color='black'/></Link></TableCell>
           </TableRow>
         </TableBody>
       </Table>
       </div>
     </div>
+ 
   );
 };
 
-export default Class;
+export default SubjectSchedules;
