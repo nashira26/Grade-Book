@@ -31,7 +31,7 @@ const Class = () => {
           </h3>
           <Input icon='search' placeholder='Search...' className="max-h-7 top-4"/>
           <div class="relative flex flex-wrap items-center my-2 lg:gap-x-4">
-            <Button color='blue'><Icon name='plus' color='white'/> Add Student</Button>
+            <Button color="brown"><Icon name='plus' color='white'/> Add Student</Button>
             <Button color='grey'> <Icon name='bars' color='white'/>Class schedules </Button>
           </div>
         </div>
@@ -40,8 +40,8 @@ const Class = () => {
 
       <Table celled selectable striped>
 
-        <TableHeader>
-          <TableRow>
+        <TableHeader className='table-header'>
+          <TableRow className='table-row'>
             <TableHeaderCell>Serial No</TableHeaderCell>
             <TableHeaderCell>Index No</TableHeaderCell>
             <TableHeaderCell>Name</TableHeaderCell>

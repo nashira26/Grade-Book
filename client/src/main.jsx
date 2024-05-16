@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './pages/App.jsx'
 import './index.css'
 import 'semantic-ui-css/semantic.min.css'
 import { persistor, store } from './redux/store.js'

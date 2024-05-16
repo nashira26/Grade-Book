@@ -31,7 +31,7 @@ const ClassSchedule = () => {
           </h3>
           <Input icon='search' placeholder='Search...' className="max-h-7 top-4"/>
           <div class="relative flex flex-wrap items-center my-2 lg:gap-x-4">
-            <Button color='blue'><Icon name='plus' color='white'/> Add Student</Button>
+            <Button color='brown'><Icon name='plus' color='white'/> Add Student</Button>
           </div>
         </div>
         
