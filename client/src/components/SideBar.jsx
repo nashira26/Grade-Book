@@ -53,7 +53,7 @@ const SideBar = () => {
         </Menu.Item>
         <Menu.Item
           as={Link}
-          to="/subject-schedules"
+          to="/subjects"
           active={location.pathname === '/subject-schedules'}
           className="nav-link"
         >
@@ -66,7 +66,7 @@ const SideBar = () => {
           active={location.pathname === '/class-schedules'}
           className="nav-link"
         >
-          <Icon name='line graph'/>
+          <Icon name='history'/>
           History
         </Menu.Item>
         <Menu.Item

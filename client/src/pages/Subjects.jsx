@@ -9,14 +9,19 @@ import {
   Divider,
   Button,
   Icon,
-  Input
+  Input,
+  Header,
+  HeaderContent
 } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
-const SubjectSchedules = () => {
+const Subjects = () => {
   return (
     <div className="content">
-
+<Header size='small' as='h3' icon textAlign='center' floated='left' className="header">
+      <Icon name='lab' />
+      <HeaderContent className="breadcrumb">Subjects</HeaderContent>
+    </Header>
          {/* <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
           <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
             <span class="mt-1 font-bold text-secondary-dark text-lg/normal">No schdules found</span>
@@ -26,13 +31,11 @@ const SubjectSchedules = () => {
           </div>
         </div> */}
         
-        <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
-          <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
-            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">Year 2024 Term 3</span>
-          </h3>
-          <Input icon='search' placeholder='Search...' className="max-h-7 top-4"/>
+        <div class="px-9 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
+          
+          <Input icon='search' placeholder='Search...' className="max-h-7 top-10"/>
           <div class="relative flex flex-wrap items-center my-2 lg:gap-x-4">
-            <Button color='brown'><Icon name='plus' color='white'/> Add Schedule</Button>
+            <Button color='brown'><Icon name='add to cart' color='white'/> Add Subject</Button>
           </div>
         </div>
         
@@ -66,4 +69,4 @@ const SubjectSchedules = () => {
   );
 };
 
-export default SubjectSchedules;
+export default Subjects;

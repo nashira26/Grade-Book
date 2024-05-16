@@ -9,12 +9,19 @@ import {
   Divider,
   Button,
   Icon,
-  Input
+  Input,
+  Header,
+  HeaderContent
 } from 'semantic-ui-react'
-
+import { Link } from 'react-router-dom';
 const Class = () => {
   return (
     <div className="content">
+      
+    <Header size='medium' as='h3' icon textAlign='center' floated='left' className="header">
+      <Icon name='users' />
+      <HeaderContent className="breadcrumb">Grade 6B</HeaderContent>
+    </Header>
 
          {/* <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
           <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
@@ -25,14 +32,17 @@ const Class = () => {
           </div>
         </div> */}
         
-         <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
-          <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
-            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">Grade 6B - Year 2024</span>
-          </h3>
-          <Input icon='search' placeholder='Search...' className="max-h-7 top-4"/>
-          <div class="relative flex flex-wrap items-center my-2 lg:gap-x-4">
-            <Button color="brown"><Icon name='plus' color='white'/> Add Student</Button>
-            <Button color='grey'> <Icon name='bars' color='white'/>Class schedules </Button>
+         <div class="px-9 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
+  
+          {/* <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
+            <span class="mt-1 font-bold text-secondary-dark text-lg/normal">Grade 6B</span>
+          </h3> */}
+          <Input icon='search' placeholder='Search...' className="max-h-7 top-10"/>
+          <div class="relative flex flex-wrap items-end my-2 lg:gap-x-4">
+            <Button color="brown"><Icon name='add user' color='white'/> Add Student</Button>
+            <Link to="/class-schedule">
+              <Button color='grey'><Icon name='bars' color='white'/>Final schedules</Button>
+            </Link>
           </div>
         </div>
         
@@ -42,21 +52,23 @@ const Class = () => {
 
         <TableHeader className='table-header'>
           <TableRow className='table-row'>
-            <TableHeaderCell>Serial No</TableHeaderCell>
-            <TableHeaderCell>Index No</TableHeaderCell>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Averages</TableHeaderCell>
-            <TableHeaderCell></TableHeaderCell>
+            <TableHeaderCell width={1}>No.</TableHeaderCell>
+            <TableHeaderCell width={3}>Index No</TableHeaderCell>
+            <TableHeaderCell width={6}>Name & Index No</TableHeaderCell>
+            <TableHeaderCell width={3}>Averages</TableHeaderCell>
+            <TableHeaderCell width={3}>Trend</TableHeaderCell>
+            <TableHeaderCell width={2}></TableHeaderCell>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           <TableRow>
             <TableCell>1</TableCell>
-            <TableCell>6369</TableCell>
-            <TableCell>George Cooper</TableCell>
+            <TableCell><Button>6369</Button></TableCell>
+            <TableCell><Icon name='user' color='black' size='large'/>George Cooper</TableCell>
             <TableCell>76</TableCell>
-            <TableCell textAlign='center'><Icon name='ellipsis vertical' color='black'/></TableCell>
+            <TableCell><Icon name='line graph' color='green' size='large'/></TableCell>
+            <TableCell textAlign='center'><Icon name='history' color='black' size='large'/></TableCell>
           </TableRow>
         </TableBody>
       </Table>

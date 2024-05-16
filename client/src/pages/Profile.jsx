@@ -4,7 +4,11 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUserFailure, updateUserStart, updateUserSuccess, deleteUserFailure, deleteUserStart, deleteUserSuccess,signOut } from '../redux/user/userSlice'
-
+import {
+      Icon,
+    Header,
+    HeaderContent
+} from 'semantic-ui-react'
 export default function Profile()  {
 
   const { currentUser, loading,error } = useSelector((state)=>state.user);
@@ -65,9 +69,13 @@ export default function Profile()  {
 
    return (
     
-    <div class="relative isolate px-6 pt-14 lg:px-8">
+    <div className="content">
+ <Header size='small' as='h3' icon textAlign='center' floated='left' className="header">
+      <Icon name='user' />
+      <HeaderContent className="breadcrumb">Profile</HeaderContent>
+    </Header>
     <div className="max-w-lg mx-auto p-5">
-      <h1 className="text-3xl text-center font-semibold my-7">Profile</h1>
+     
       <form className="flex flex-col gap-4 " onSubmit={hanldeSubmit}>
         <input defaultValue={currentUser.firstname} type='text' placeholder='First name' id='firstname' className="bg-slate-100 p-3 rounded-lg"onChange={handleChange}></input>
         <input defaultValue={currentUser.lastname} type='text' placeholder='Last name' id='lastname' className="bg-slate-100 p-3 rounded-lg"onChange={handleChange}></input>
