@@ -19,17 +19,18 @@ import { Link } from 'react-router-dom';
 const SubjectSchedule = () => {
   return (
     <div className="content">
-      <Header size='small' as='h3' icon textAlign='center' floated='left' className="header">
+      <Header size='small' as='h3' icon textAlign='center' floated='left' className="icon-header">
       <Icon name='lab' />
       <HeaderContent className="breadcrumb">Subject Schedules - Science 6B</HeaderContent>
     </Header>
+    <Divider />
          <div class="px-9 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
           <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
             <span class="mt-1 font-bold text-secondary-dark text-lg/normal">Year 2024 Term 3 Grade 6 Science</span>
           </h3>
           <Input icon='search' placeholder='Search...' className="max-h-7 top-10"/>
           <div class="relative flex flex-wrap items-center my-2 lg:gap-x-4">
-            <Button color='brown'><Icon name='plus' color='white'/> Add Marks</Button>
+            <Button className='plus'><Icon name='plus' color='white'/> Add Marks</Button>
             <Button color='grey'> <Icon name='print' color='white'/> Download </Button>
           </div>
         </div>

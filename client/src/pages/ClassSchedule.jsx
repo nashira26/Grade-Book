@@ -18,11 +18,11 @@ const ClassSchedule = () => {
   return (
     <div className="content">
 
-    <Header size='medium' as='h3' icon textAlign='center' floated='left' className="header">
+    <Header size='medium' as='h3' icon textAlign='center' floated='left' className="icon-header">
       <Icon name='users' />
       <HeaderContent className="breadcrumb">Grade 6B - 3rd term</HeaderContent>
     </Header>
-
+    <Divider />
          {/* <div class="px-9 pt-5 flex justify-between items-stretch flex-wrap min-h-[70px] pb-0 bg-transparent">
           <h3 class="flex flex-col items-start justify-center m-2 ml-0 font-bold text-xl/tight text-dark">
             <span class="mt-1 font-bold text-secondary-dark text-lg/normal">No schdules found</span>

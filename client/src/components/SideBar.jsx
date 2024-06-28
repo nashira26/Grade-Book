@@ -32,7 +32,7 @@ const SideBar = () => {
     >
       <Menu.Item className="nav-link">
         <Link to="/" className="logo">
-        <Icon name='area graph' color='white' size='large'/>
+        <Icon name='area graph' color="grey" size='large'/>
           Grade Book
         </Link>
       </Menu.Item>
@@ -57,7 +57,7 @@ const SideBar = () => {
           active={location.pathname === '/subject-schedules'}
           className="nav-link"
         >
-          <Icon name='lab'/>
+          <Icon name='clipboard'/>
           Subjects
         </Menu.Item>
         <Menu.Item

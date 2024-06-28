@@ -7,7 +7,8 @@ import { updateUserFailure, updateUserStart, updateUserSuccess, deleteUserFailur
 import {
       Icon,
     Header,
-    HeaderContent
+    HeaderContent,
+    Divider
 } from 'semantic-ui-react'
 export default function Profile()  {
 
@@ -70,10 +71,11 @@ export default function Profile()  {
    return (
     
     <div className="content">
- <Header size='small' as='h3' icon textAlign='center' floated='left' className="header">
+ <Header size='small' as='h3' icon textAlign='center' floated='left' className="icon-header">
       <Icon name='user' />
       <HeaderContent className="breadcrumb">Profile</HeaderContent>
     </Header>
+    <Divider />
     <div className="max-w-lg mx-auto p-5">
      
       <form className="flex flex-col gap-4 " onSubmit={hanldeSubmit}>
